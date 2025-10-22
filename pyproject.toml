@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "comfyui-prompt-cycler"
+name = "tenitsky-prompt-cycler-simple"
 version = "1.0.0"
 description = "A ComfyUI custom node that cycles through an infinite number of prompts"
 readme = "README.md"
@@ -29,9 +29,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/anton-tenitsky/comfyui-prompt-cycler"
-Repository = "https://github.com/anton-tenitsky/comfyui-prompt-cycler"
-Issues = "https://github.com/anton-tenitsky/comfyui-prompt-cycler/issues"
+Homepage = "https://github.com/tenitsky/tenitsky-prompt-cycler-simple"
+Repository = "https://github.com/tenitsky/tenitsky-prompt-cycler-simple"
+Issues = "https://github.com/tenitsky/tenitsky-prompt-cycler-simple/issues"
 
 [project.optional-dependencies]
 dev = [

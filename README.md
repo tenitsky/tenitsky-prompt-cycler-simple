@@ -17,8 +17,8 @@ A custom ComfyUI node that cycles through an infinite number of prompts, perfect
 ### Method 1: Git Clone (Recommended)
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/anton-tenitsky/comfyui-prompt-cycler.git
-cd comfyui-prompt-cycler
+git clone https://github.com/tenitsky/tenitsky-prompt-cycler-simple.git
+cd tenitsky-prompt-cycler-simple
 pip install -r requirements.txt
 ```
 

@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2025-01-XX
+### Fixed
+- Fixed issue where example prompts were not visible in the ComfyUI interface
+- Example prompts now show as default values in the custom_prompts field
+
+## [1.0.0] - 2025-10-22
 
 ### Added
 - Initial release of Prompt Cycler node

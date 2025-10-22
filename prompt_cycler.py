@@ -28,6 +28,20 @@ class PromptCycler:
 
     @classmethod
     def INPUT_TYPES(cls):
+        # Create default prompts string from example prompts
+        default_prompts = "\n".join([
+            "A majestic mountain landscape at sunset with golden light",
+            "A futuristic city with flying cars and neon lights",
+            "A peaceful forest with sunlight filtering through trees",
+            "An underwater scene with colorful coral reefs and fish",
+            "A cozy cabin in the woods during winter snowfall",
+            "A space station orbiting a distant planet",
+            "A bustling marketplace in an ancient city",
+            "A serene lake with mountains reflected in the water",
+            "A steampunk laboratory with brass gears and steam",
+            "A magical garden with glowing flowers and butterflies"
+        ])
+        
         return {
             "required": {
                 "seed": ("INT", {
@@ -48,9 +62,9 @@ class PromptCycler:
             "optional": {
                 "custom_prompts": ("STRING", {
                     "multiline": True,
-                    "default": "",
+                    "default": default_prompts,
                     "display": "text",
-                    "tooltip": "Enter your own prompts, one per line. If empty, uses built-in example prompts."
+                    "tooltip": "Enter your own prompts, one per line. Default shows example prompts."
                 })
             }
         }

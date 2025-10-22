@@ -128,38 +128,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# ComfyUI specific
-models/
-output/
-input/
-temp/
-*.ckpt
-*.safetensors
-*.pt
-*.pth
-*.bin
-*.vae
-*.yaml
-*.yml
-*.json
-*.txt
-*.csv
-*.tsv
-*.log
-*.out
-*.err
-*.pid
-*.lock
-*.tmp
-*.temp
-*.bak
-*.backup
-*.old
-*.orig
-*.rej
+# IDE
+.vscode/
+.idea/
 *.swp
 *.swo
 *~
+
+# OS
 .DS_Store
 Thumbs.db
-desktop.ini
