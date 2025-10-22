@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfyui-prompt-cycler"
+version = "1.0.0"
+description = "A ComfyUI custom node that cycles through an infinite number of prompts"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Anton Tenitsky", email = "anton.tenitsky@example.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Multimedia :: Graphics",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=1.9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/anton-tenitsky/comfyui-prompt-cycler"
+Repository = "https://github.com/anton-tenitsky/comfyui-prompt-cycler"
+Issues = "https://github.com/anton-tenitsky/comfyui-prompt-cycler/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.800",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+exclude = ["tests*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
