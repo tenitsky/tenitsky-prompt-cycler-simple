@@ -2,6 +2,8 @@
 
 A custom ComfyUI node that cycles through an infinite number of prompts, perfect for batch generation with varied content. Supports both built-in example prompts and custom user-defined prompts.
 
+🎥 **Tutorial Video:** [Watch on YouTube](https://youtu.be/FILrz0DDqYU)
+
 ## Features
 
 - **Infinite Prompt Support**: Cycle through any number of custom prompts
@@ -116,4 +118,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 10 built-in example prompts
 - Sequential and random cycling modes
 - Reset functionality
+
 - Seed control for reproducible results
