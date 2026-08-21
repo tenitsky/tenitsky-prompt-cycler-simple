@@ -26,7 +26,8 @@ This ComfyUI custom node cycles through an infinite number of prompts, making it
 - **Seed**: Random seed (0 = no seed)
 - **Cycle Mode**: sequential or random
 - **Reset Cycle**: Reset counter to 0
-- **Custom Prompts**: Your own prompts (one per line)
+- **Custom Prompts**: Your own prompts (split by separator)
+- **Separator**: Delimiter string or escape sequence (e.g. `\n`, `---`, `;;;`) to split prompts (default: `\n`)
 
 ## Outputs
 - **prompt**: Current prompt string

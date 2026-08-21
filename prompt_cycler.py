@@ -64,7 +64,12 @@ class PromptCycler:
                     "multiline": True,
                     "default": default_prompts,
                     "display": "text",
-                    "tooltip": "Enter your own prompts, one per line. Default shows example prompts."
+                    "tooltip": "Enter your own prompts. Separated by the separator parameter (default: newline). Default shows example prompts."
+                }),
+                "separator": ("STRING", {
+                    "default": "\\n",
+                    "display": "text",
+                    "tooltip": "Character(s) or escape sequence (e.g. \\n, ---, ;;) used to split custom prompts into individual prompts. Default is \\n (newline)."
                 })
             }
         }
@@ -74,7 +79,7 @@ class PromptCycler:
     FUNCTION = "cycle_prompt"
     CATEGORY = "text/prompt"
 
-    def cycle_prompt(self, seed: int, cycle_mode: str, reset_cycle: bool, custom_prompts: str = ""):
+    def cycle_prompt(self, seed: int, cycle_mode: str, reset_cycle: bool, custom_prompts: str = "", separator: str = "\\n"):
         """
         Cycle through prompts and return the current one.
         Supports infinite number of prompts via custom_prompts input.
@@ -83,7 +88,8 @@ class PromptCycler:
             seed: Random seed for reproducible results
             cycle_mode: "sequential" or "random" cycling
             reset_cycle: Whether to reset the cycle counter
-            custom_prompts: Optional custom prompts (one per line). If empty, uses example prompts.
+            custom_prompts: Optional custom prompts. If empty, uses example prompts.
+            separator: Delimiter string to split custom prompts (default "\\n").
         
         Returns:
             Tuple of (current_prompt, cycle_index)
@@ -91,7 +97,18 @@ class PromptCycler:
         # Use custom prompts if provided, otherwise use example prompts
         prompts_to_use = self.example_prompts
         if custom_prompts.strip():
-            custom_list = [p.strip() for p in custom_prompts.split('\n') if p.strip()]
+            # Process escape sequences in separator if present (e.g. \n, \r, \t)
+            sep = separator if separator else "\n"
+            sep = sep.replace("\\r\\n", "\n").replace("\\n", "\n").replace("\\r", "\n").replace("\\t", "\t")
+
+            # Normalize line endings in custom_prompts to match
+            normalized_prompts = custom_prompts.replace("\r\n", "\n").replace("\r", "\n")
+
+            if sep == "\n":
+                custom_list = [p.strip() for p in normalized_prompts.split("\n") if p.strip()]
+            else:
+                custom_list = [p.strip() for p in normalized_prompts.split(sep) if p.strip()]
+
             if custom_list:
                 prompts_to_use = custom_list
         
