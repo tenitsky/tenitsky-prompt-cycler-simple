@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Configurable `separator` parameter for splitting custom prompts (supports escape sequences like `\n`, `\t` as well as custom strings like `---`, `;;;`)
+- Support for multi-line prompts via custom separators
+
 ### Fixed
 - Fixed issue where example prompts were not visible in the ComfyUI interface
 - Example prompts now show as default values in the custom_prompts field

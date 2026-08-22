@@ -47,7 +47,8 @@ pip install -r requirements.txt
   - `sequential`: Cycles through prompts in order
   - `random`: Randomly selects prompts
 - **Reset Cycle**: Checkbox to reset the cycle counter to 0
-- **Custom Prompts** (optional): Provide your own prompts, one per line. Supports unlimited number of prompts.
+- **Custom Prompts** (optional): Provide your own prompts. Default shows example prompts.
+- **Separator** (optional): Delimiter string or escape sequence used to split `custom_prompts` (default: `\n`). You can use single characters (e.g. `,`, `|`), multi-character delimiters (e.g. `---`, `;;;`), or escape sequences (e.g. `\n`, `\t`).
 
 ### Example Prompts
 
@@ -67,10 +68,20 @@ The node comes with 10 pre-configured example prompts to get you started:
 ### Custom Prompts
 
 To use your own prompts (supports unlimited number):
-1. Enable the `custom_prompts` input
-2. Enter your prompts, one per line
-3. The node will cycle through your custom prompts instead of the example ones
-4. You can have as many prompts as you want - the node will cycle through them infinitely
+1. Enter your prompts in the `custom_prompts` input.
+2. By default (`separator` set to `\n`), enter one prompt per line.
+3. For **multi-line prompts**, set `separator` to a custom delimiter such as `---` or `;;;`. Each prompt can then span multiple lines:
+   ```
+   masterpiece, high quality photo of a cyberpunk street,
+   neon lights, rainy reflections,
+   shot on 35mm lens, detailed textures
+   ---
+   an ancient fantasy library with floating glowing books,
+   warm ambient candlelight, cinematic lighting,
+   hyperdetailed digital painting
+   ```
+4. The node will cycle through your custom prompts instead of the example ones.
+5. You can have as many prompts as you want - the node will cycle through them infinitely.
 
 ## Example Workflow
 
@@ -95,7 +106,7 @@ Prompt Cycler → Text Input → CLIP Text Encode → KSampler → VAE Decode �
 - Make sure PyTorch is installed correctly
 - Check that the node appears in the "text/prompt" category
 - If prompts aren't cycling, try using the reset cycle option
-- For custom prompts, ensure each prompt is on a separate line
+- For custom prompts, ensure prompts are delimited by the configured `separator` (default: one per line)
 - You can use any number of prompts - the node will cycle through them infinitely
 
 ## Author
@@ -112,11 +123,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Changelog
 
+### v1.1.0
+- Added configurable `separator` parameter for splitting custom prompts (supports escape sequences like `\n`, `\t` as well as custom strings like `---`, `;;;`)
+- Added support for multi-line prompts using custom separators
+
 ### v1.0.0
 - Initial release
 - Support for infinite number of custom prompts
 - 10 built-in example prompts
 - Sequential and random cycling modes
 - Reset functionality
-
 - Seed control for reproducible results
